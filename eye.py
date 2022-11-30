@@ -7,7 +7,6 @@ from time import sleep
 # from pygame import image
 
 from picamera import PiCamera
-from RPi.GPIO import GPIO
 from aiymakerkit import vision
 
 timestamp = datetime.now()
