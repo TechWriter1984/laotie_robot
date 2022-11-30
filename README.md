@@ -28,5 +28,5 @@ The Laotie(old fan) robot is a Raspberry Pi 4B based robot with caterpillar chas
 
 6. [Caterpillar Chassis](https://item.m.jd.com/product/10044934642439.html?gx=RnFlkWdbOT3RyNRP--tyW8shC5U_YRfuEl-Y&ad_od=share&utm_source=androidapp&utm_medium=appshare&utm_campaign=t_335139774&utm_term=CopyURL)
    
-   ![caterpillar](.caterpillar.png)
+   ![caterpillar](./caterpillar.png)
 
