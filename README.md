@@ -1,5 +1,5 @@
 # laotie_robot
-A Python implementation of a Raspberry Pi 4B based robot with caterpillar chassis, camera &amp; Google Coral USB accelerator.
+The Laotie(old fan) robot is a Raspberry Pi 4B based robot with caterpillar chassis, Pi camera, Pi Microphone, Google Coral USB accelerator.
 
 ## Features
 
@@ -8,7 +8,7 @@ A Python implementation of a Raspberry Pi 4B based robot with caterpillar chassi
 - caterpillar chassis
 - chatbot
 
-## Hardware
+## Hardware(click to get e-shop URLs)
 
 1. [Raspberry Pi 4B](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
 
