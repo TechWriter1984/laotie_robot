@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+# @Time    :   2022/12/06 20:58:54
+# @FileName:   smart_camera.py
+# @Author  :   TechWriter1984
+# @E-mail  :   oopswow@126.com
+
 from picamera import PiCamera
 from aiymakerkit import audio
 
@@ -17,7 +23,7 @@ def handle_results(label, score):
 
 def capture_photo():
     timestamp = datetime.now()
-    filename = "VOICE_CAM_" + timestamp.strftime("%Y%m%d%H%M%S") + ".png"
+    filename = "laotie_" + timestamp.strftime("%Y%m%d%H%M%S") + ".png"
     filename = os.path.join(PICTURE_DIR, filename)
     camera.capture(filename)
     print('Saved', filename)
