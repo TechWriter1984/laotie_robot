@@ -81,20 +81,20 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
-            pwm1.ChangeDutyCycle(30)
-            pwm2.ChangeDutyCycle(30)
+            pwm1.ChangeDutyCycle(50)
+            pwm2.ChangeDutyCycle(50)
             moving_forward()
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_DOWN:
-            pwm1.ChangeDutyCycle(30)
-            pwm2.ChangeDutyCycle(30)
+            pwm1.ChangeDutyCycle(50)
+            pwm2.ChangeDutyCycle(50)
             moving_backward()
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_LEFT:
-            pwm1.ChangeDutyCycle(30)
-            pwm2.ChangeDutyCycle(30)
+            pwm1.ChangeDutyCycle(50)
+            pwm2.ChangeDutyCycle(50)
             turning_left()
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
-            pwm1.ChangeDutyCycle(30)
-            pwm2.ChangeDutyCycle(30)
+            pwm1.ChangeDutyCycle(50)
+            pwm2.ChangeDutyCycle(50)
             turning_right()
 
 pygame.quit()
