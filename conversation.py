@@ -1,4 +1,8 @@
-
+# -*- coding: utf-8 -*-
+# @Time    :   2022/12/18 16:23:47
+# @FileName:   conversation.py
+# @Author  :   TechWriter1984
+# @E-mail  :   oopswow@126.com
 
 import speech_recognition as sr
 from chatterbot import ChatBot
