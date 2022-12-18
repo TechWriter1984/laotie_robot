@@ -1,8 +1,8 @@
-# laotie_robot
+# laotie_robot (under development)
 
 The Laotie(old fan) robot is a open source, easy-to-ues, low-cost project aiming to help programming beginners learn the fundamentals.
 
-![Figure 1: Key Components](./figure_1.jpg)
+![Figure 1: Key Components](./images/figure_1.jpg)
 
 ## Features
 
@@ -13,9 +13,6 @@ The Laotie(old fan) robot is a open source, easy-to-ues, low-cost project aiming
 
 ## Caterpillar Chassis
 
-![Figure 2: Caterpillar Chassis](./figure_2.jpg)
+![Figure 2: Caterpillar Chassis](./images/figure_2.jpg)
 
 ## A full list of hardwares(coming soon ...)
-
-
-

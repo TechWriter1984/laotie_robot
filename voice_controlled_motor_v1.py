@@ -1,15 +1,17 @@
 # -*- coding: utf-8 -*-
-# @Time    :   2022/12/06 20:58:54
-# @FileName:   smart_camera.py
+# @Time    :   2022/12/10 22:50:15
+# @FileName:   voice_controlled_motor.py
 # @Author  :   TechWriter1984
 # @E-mail  :   oopswow@126.com
 
 from picamera import PiCamera
 from aiymakerkit import audio
+import keyboard_controlled_motor
 
 from datetime import datetime
 import os
 
+# Mind that this path here must be the one in your Raspbian OS
 PICTURE_DIR = os.path.join((os.path.expanduser('~')), 'Pictures')
 IMAGE_SIZE = (640, 480)
 camera = picamera.PiCamera(resolution = IMAGE_SIZE)
