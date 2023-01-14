@@ -34,16 +34,16 @@ def handle_results(label, score):
         model2.dontknow()
     return True
 
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('model_file', type=str)
-    args = parser.parse_args()
+# def main():
+#     parser = argparse.ArgumentParser()
+#     parser.add_argument('model_file', type=str)
+#     args = parser.parse_args()
 
-    try:
-        audio.classify_audio(model=args.model_file, callback=handle_results)
+#     try:
+#         audio.classify_audio(model=args.model_file, callback=handle_results)
         
-    finally:
-        camera.close()
+#     finally:
+#         camera.close()
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
