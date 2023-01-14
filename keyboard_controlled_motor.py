@@ -31,11 +31,29 @@ pwm2.start(0)
 
 running = True
 
-def moving_forward():
+def turning_right():
     GPIO.output(3, True)
     GPIO.output(4, False)
     GPIO.output(20, True)
     GPIO.output(21, False)
+    print('---------------------')
+    print('     老铁，右转！    ')
+    print('---------------------')
+
+def turning_left():
+    GPIO.output(3, False)
+    GPIO.output(4, True)
+    GPIO.output(20, False)
+    GPIO.output(21, True)
+    print('---------------------')
+    print('     老铁，左转！    ')
+    print('---------------------')
+
+def moving_forward():
+    GPIO.output(3, True)
+    GPIO.output(4, False)
+    GPIO.output(20, False)
+    GPIO.output(21, True)
     print('---------------------')
     print('     老铁，前进！    ')
     print('---------------------')
@@ -43,28 +61,10 @@ def moving_forward():
 def moving_backward():
     GPIO.output(3, False)
     GPIO.output(4, True)
-    GPIO.output(20, False)
-    GPIO.output(21, True)
-    print('---------------------')
-    print('     老铁，后退！    ')
-    print('---------------------')
-
-def turning_left():
-    GPIO.output(3, True)
-    GPIO.output(4, False)
-    GPIO.output(20, False)
-    GPIO.output(21, True)
-    print('---------------------')
-    print('     老铁，左转！    ')
-    print('---------------------')
-
-def turning_right():
-    GPIO.output(3, False)
-    GPIO.output(4, True)
     GPIO.output(20, True)
     GPIO.output(21, False)
     print('---------------------')
-    print('     老铁，右转！    ')
+    print('     老铁，后退！    ')
     print('---------------------')
 
 def stop():

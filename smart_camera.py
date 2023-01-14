@@ -4,37 +4,46 @@
 # @Author  :   TechWriter1984
 # @E-mail  :   oopswow@126.com
 
-from picamera import PiCamera
 from aiymakerkit import audio
+import argparse
+import model2
 
+from picamera import PiCamera
 from datetime import datetime
 import os
 
-PICTURE_DIR = os.path.join((os.path.expanduser('~')), 'Pictures')
+PICTURE_DIR = os.path.join(os.path.expanduser('~'), 'Pictures')
 IMAGE_SIZE = (640, 480)
-camera = picamera.PiCamera(resolution = IMAGE_SIZE)
-
-def handle_results(label, score):
-    if label == 'Stop':
-        return False
-    elif label == 'Cheese':
-        capture_photo()    
-    return True
+camera=PiCamera(resolution = IMAGE_SIZE)
 
 def capture_photo():
     timestamp = datetime.now()
-    filename = "laotie_" + timestamp.strftime("%Y%m%d%H%M%S") + ".png"
+    filename = "VOICE_CAM_" + timestamp.strftime("%Y%m%d%H%M%S") + '.jpg'
     filename = os.path.join(PICTURE_DIR, filename)
     camera.capture(filename)
     print('Saved', filename)
 
-try:
-    audio.classify_audio(model_file = args.model, callback = handle_results)
-finally:
-    camera.close()
+def handle_results(label, score):
+    print('CALLBACK: ', label, '=>', score)
+    model2.greeting()
+    if label == '4 laotie':
+        model2.greeting()
+    elif label == '2 cheese':
+        capture_photo()
+    elif label == '0 Background Noise':
+        model2.dontknow()
+    return True
 
 def main():
-    pass
+    parser = argparse.ArgumentParser()
+    parser.add_argument('model_file', type=str)
+    args = parser.parse_args()
+
+    try:
+        audio.classify_audio(model=args.model_file, callback=handle_results)
+        
+    finally:
+        camera.close()
 
 if __name__ == '__main__':
     main()
