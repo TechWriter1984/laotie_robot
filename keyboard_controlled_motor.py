@@ -96,5 +96,7 @@ while running:
             pwm1.ChangeDutyCycle(50)
             pwm2.ChangeDutyCycle(50)
             turning_right()
+        elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+            stop()
 
 pygame.quit()
