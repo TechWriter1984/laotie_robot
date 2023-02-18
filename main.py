@@ -4,14 +4,16 @@
 # @Author  :   TechWriter1984
 # @E-mail  :   oopswow@126.com
 
-import smart_camera
-import model2
+from smart_camera import SmartCamera
+from chatbot import Chatbot
+from chassis import KeyboardChassis
+from aiymakerkit import audio
 
+import sys
 import argparse
 
 import pygame
 import pygame.camera
-from pygame.locals import *
 
 pygame.init()
 pygame.camera.init()
@@ -28,6 +30,17 @@ if cam_list:
 else:
     raise ValueError("未能启动摄像头！请检查摄像头连接是否正常，然后重新启动。")
 
+def handle_results(label, score):
+    print('CALLBACK: ', label, '=>', score)
+    Chatbot.greeting()
+    if label == '4 laotie':
+        Chatbot.greeting()
+    elif label == '2 cheese':
+        SmartCamera.capture_photo()
+    elif label == '0 Background Noise':
+        Chatbot.dontknow()
+    return True
+
 while True:
     image1 = cam.get_image()
     image1 = pygame.transform.scale(image1, SCREEN_SIZE)
@@ -38,28 +51,26 @@ while True:
     parser.add_argument('model_file', type=str)
     args = parser.parse_args()
 
+    try:
+        audio.classify_audio(model=args.model_file, callback=handle_results)
+        
+    finally:
+        cam.stop()
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             cam.stop()
             pygame.quit()
             sys.exit()
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_KP_ENTER:
-          smart_camera.capture_photo()
+            SmartCamera.capture_photo()
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
-            pwm1.ChangeDutyCycle(50)
-            pwm2.ChangeDutyCycle(50)
-            moving_forward()
+            KeyboardChassis.moving_forward()
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_DOWN:
-            pwm1.ChangeDutyCycle(50)
-            pwm2.ChangeDutyCycle(50)
-            moving_backward()
+            KeyboardChassis.moving_backward()
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_LEFT:
-            pwm1.ChangeDutyCycle(50)
-            pwm2.ChangeDutyCycle(50)
-            turning_left()
+            KeyboardChassis.turning_left()
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
-            pwm1.ChangeDutyCycle(50)
-            pwm2.ChangeDutyCycle(50)
-            turning_right()
+            KeyboardChassis.turning_right()
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
-            stop()
+            KeyboardChassis.stop()

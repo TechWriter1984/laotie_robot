@@ -6,7 +6,7 @@
 
 from picamera import PiCamera
 from aiymakerkit import audio
-import keyboard_controlled_motor
+import laotie_robot.chassis as chassis
 
 from datetime import datetime
 import os

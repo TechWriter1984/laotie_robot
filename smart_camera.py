@@ -6,33 +6,37 @@
 
 from aiymakerkit import audio
 import argparse
-import model2
+import chatbot
 
 from picamera import PiCamera
 from datetime import datetime
 import os
 
-PICTURE_DIR = os.path.join(os.path.expanduser('~'), 'Pictures')
-IMAGE_SIZE = (640, 480)
-camera=PiCamera(resolution = IMAGE_SIZE)
+class SmartCamera:
 
-def capture_photo():
-    timestamp = datetime.now()
-    filename = "VOICE_CAM_" + timestamp.strftime("%Y%m%d%H%M%S") + '.jpg'
-    filename = os.path.join(PICTURE_DIR, filename)
-    camera.capture(filename)
-    print('Saved', filename)
+    def __init__(self):
 
-def handle_results(label, score):
-    print('CALLBACK: ', label, '=>', score)
-    model2.greeting()
-    if label == '4 laotie':
-        model2.greeting()
-    elif label == '2 cheese':
-        capture_photo()
-    elif label == '0 Background Noise':
-        model2.dontknow()
-    return True
+        self.PICTURE_DIR = os.path.join(os.path.expanduser('~'), 'Pictures')
+        self.IMAGE_SIZE = (640, 480)
+        self.camera=PiCamera(resolution = self.IMAGE_SIZE)
+
+    def capture_photo(self):
+        timestamp = datetime.now()
+        filename = "VOICE_CAM_" + timestamp.strftime("%Y%m%d%H%M%S") + '.jpg'
+        filename = os.path.join(self.PICTURE_DIR, filename)
+        self.camera.capture(filename)
+        print('Saved', filename)
+
+# def handle_results(label, score):
+#     print('CALLBACK: ', label, '=>', score)
+#     chatbot.greeting()
+#     if label == '4 laotie':
+#         chatbot.greeting()
+#     elif label == '2 cheese':
+#         capture_photo()
+#     elif label == '0 Background Noise':
+#         chatbot.dontknow()
+#     return True
 
 # def main():
 #     parser = argparse.ArgumentParser()
