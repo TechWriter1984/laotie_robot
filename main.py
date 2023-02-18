@@ -55,11 +55,11 @@ while True:
     parser.add_argument('model_file', type=str)
     args = parser.parse_args()
 
-    try:
-        audio.classify_audio(model=args.model_file, callback=handle_results)
+    # try:
+    audio.classify_audio(model=args.model_file, callback=handle_results)
         
-    finally:
-        cam.stop()
+    # finally:
+    #     cam.stop()
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
