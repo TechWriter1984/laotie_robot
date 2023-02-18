@@ -41,25 +41,7 @@ def handle_results(label, score):
     elif label == '0 Background Noise':
         bot.dontknow()
 
-    for event in pygame.event.get():
-      if event.type == pygame.QUIT:
-        cam.stop()
-        pygame.quit()
-        sys.exit()
-      # elif event.type == pygame.KEYDOWN and event.key == pygame.K_KP_ENTER:
-      #     sc.capture_photo()
-      elif event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
-          kc.moving_forward()
-      elif event.type == pygame.KEYDOWN and event.key == pygame.K_DOWN:
-          kc.moving_backward()
-      elif event.type == pygame.KEYDOWN and event.key == pygame.K_LEFT:
-          kc.turning_left()
-      elif event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
-          kc.turning_right()
-      elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
-          kc.stop()
-
-      return True
+    return True
 
 while True:
     image1 = cam.get_image()
@@ -77,4 +59,20 @@ while True:
     # finally:
     #     cam.stop()
 
-
+    for event in pygame.event.get():
+      if event.type == pygame.QUIT:
+        cam.stop()
+        pygame.quit()
+        sys.exit()
+      # elif event.type == pygame.KEYDOWN and event.key == pygame.K_KP_ENTER:
+      #     sc.capture_photo()
+      elif event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
+          kc.moving_forward()
+      elif event.type == pygame.KEYDOWN and event.key == pygame.K_DOWN:
+          kc.moving_backward()
+      elif event.type == pygame.KEYDOWN and event.key == pygame.K_LEFT:
+          kc.turning_left()
+      elif event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
+          kc.turning_right()
+      elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+          kc.stop()
