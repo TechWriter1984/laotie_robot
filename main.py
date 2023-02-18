@@ -40,7 +40,6 @@ def handle_results(label, score):
     #     sc.capture_photo()
     elif label == '0 Background Noise':
         bot.dontknow()
-    return True
 
     for event in pygame.event.get():
       if event.type == pygame.QUIT:
@@ -59,6 +58,8 @@ def handle_results(label, score):
           kc.turning_right()
       elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
           kc.stop()
+
+      return True
 
 while True:
     image1 = cam.get_image()
