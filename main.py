@@ -4,7 +4,7 @@
 # @Author  :   TechWriter1984
 # @E-mail  :   oopswow@126.com
 
-from smart_camera import SmartCamera
+# from smart_camera import SmartCamera
 from chatbot import Chatbot
 from chassis import KeyboardChassis
 from aiymakerkit import audio
@@ -16,7 +16,7 @@ import pygame
 import pygame.camera
 
 bot = Chatbot()
-sc = SmartCamera()
+# sc = SmartCamera()
 kc = KeyboardChassis()
 
 pygame.init()
@@ -39,8 +39,8 @@ def handle_results(label, score):
     bot.greeting()
     if label == '4 laotie':
         bot.greeting()
-    elif label == '2 cheese':
-        sc.capture_photo()
+    # elif label == '2 cheese':
+    #     sc.capture_photo()
     elif label == '0 Background Noise':
         bot.dontknow()
     return True
@@ -66,8 +66,8 @@ while True:
             cam.stop()
             pygame.quit()
             sys.exit()
-        elif event.type == pygame.KEYDOWN and event.key == pygame.K_KP_ENTER:
-            sc.capture_photo()
+        # elif event.type == pygame.KEYDOWN and event.key == pygame.K_KP_ENTER:
+        #     sc.capture_photo()
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
             kc.moving_forward()
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_DOWN:
