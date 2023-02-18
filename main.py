@@ -26,7 +26,7 @@ screen = pygame.display.set_mode((800, 600), 0)
 pygame.display.set_caption("老铁机器人")
 cam_list = pygame.camera.list_cameras()
 if cam_list:
-    cam = pygame.camera.Camera(cam_list[0], (640, 480))
+    cam = pygame.camera.Camera(cam_list[0], (800, 600))
     cam.start()
 else:
     raise ValueError("未能启动摄像头！请检查摄像头连接是否正常，然后重新启动。")
@@ -42,9 +42,27 @@ def handle_results(label, score):
         bot.dontknow()
     return True
 
+    for event in pygame.event.get():
+      if event.type == pygame.QUIT:
+        cam.stop()
+        pygame.quit()
+        sys.exit()
+      # elif event.type == pygame.KEYDOWN and event.key == pygame.K_KP_ENTER:
+      #     sc.capture_photo()
+      elif event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
+          kc.moving_forward()
+      elif event.type == pygame.KEYDOWN and event.key == pygame.K_DOWN:
+          kc.moving_backward()
+      elif event.type == pygame.KEYDOWN and event.key == pygame.K_LEFT:
+          kc.turning_left()
+      elif event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
+          kc.turning_right()
+      elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+          kc.stop()
+
 while True:
     image1 = cam.get_image()
-    image1 = pygame.transform.scale(image1, (640, 480))
+    image1 = pygame.transform.scale(image1, (800, 600))
     screen.blit(image1, (0,0))
     pygame.display.update()
 
@@ -58,20 +76,4 @@ while True:
     # finally:
     #     cam.stop()
 
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            cam.stop()
-            pygame.quit()
-            sys.exit()
-        # elif event.type == pygame.KEYDOWN and event.key == pygame.K_KP_ENTER:
-        #     sc.capture_photo()
-        elif event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
-            kc.moving_forward()
-        elif event.type == pygame.KEYDOWN and event.key == pygame.K_DOWN:
-            kc.moving_backward()
-        elif event.type == pygame.KEYDOWN and event.key == pygame.K_LEFT:
-            kc.turning_left()
-        elif event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
-            kc.turning_right()
-        elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
-            kc.stop()
+
