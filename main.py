@@ -15,6 +15,10 @@ import argparse
 import pygame
 import pygame.camera
 
+bot = Chatbot()
+sc = SmartCamera()
+kc = KeyboardChassis()
+
 pygame.init()
 pygame.camera.init()
 
@@ -32,13 +36,13 @@ else:
 
 def handle_results(label, score):
     print('CALLBACK: ', label, '=>', score)
-    Chatbot.greeting()
+    bot.greeting()
     if label == '4 laotie':
-        Chatbot.greeting()
+        bot.greeting()
     elif label == '2 cheese':
-        SmartCamera.capture_photo()
+        sc.capture_photo()
     elif label == '0 Background Noise':
-        Chatbot.dontknow()
+        bot.dontknow()
     return True
 
 while True:
@@ -63,14 +67,14 @@ while True:
             pygame.quit()
             sys.exit()
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_KP_ENTER:
-            SmartCamera.capture_photo()
+            sc.capture_photo()
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
-            KeyboardChassis.moving_forward()
+            kc.moving_forward()
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_DOWN:
-            KeyboardChassis.moving_backward()
+            kc.moving_backward()
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_LEFT:
-            KeyboardChassis.turning_left()
+            kc.turning_left()
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
-            KeyboardChassis.turning_right()
+            kc.turning_right()
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
-            KeyboardChassis.stop()
+            kc.stop()
