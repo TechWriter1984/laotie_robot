@@ -29,7 +29,7 @@ pygame.camera.init()
 screen = pygame.display.set_mode((800, 600), 0)
 pygame.display.set_caption("老铁机器人")
 cam_list = pygame.camera.list_cameras()
-cam = pygame.camera.Camera(cam_list[0], (800, 600))
+cam = pygame.camera.Camera(cam_list[0], (640, 480))
 cam.start()
 
 # else:
