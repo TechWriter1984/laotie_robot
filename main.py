@@ -19,22 +19,21 @@ bot = Chatbot()
 # sc = SmartCamera()
 kc = KeyboardChassis()
 
+parser = argparse.ArgumentParser()
+parser.add_argument('model_file', type=str)
+args = parser.parse_args()
+
 pygame.init()
 pygame.camera.init()
 
 screen = pygame.display.set_mode((800, 600), 0)
 pygame.display.set_caption("老铁机器人")
 cam_list = pygame.camera.list_cameras()
-if cam_list:
-    cam = pygame.camera.Camera(cam_list[0], (800, 600))
-    cam.start()
-    image1 = cam.get_image()
-    image1 = pygame.transform.scale(image1, (800, 600))
-    screen.blit(image1, (0,0))
-    pygame.display.update()
+cam = pygame.camera.Camera(cam_list[0], (800, 600))
+cam.start()
 
-else:
-    raise ValueError("未能启动摄像头！请检查摄像头连接是否正常，然后重新启动。")
+# else:
+#     raise ValueError("未能启动摄像头！请检查摄像头连接是否正常，然后重新启动。")
 
 def handle_results(label, score):
     print('CALLBACK: ', label, '=>', score)
@@ -50,9 +49,10 @@ def handle_results(label, score):
 
 while True:
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument('model_file', type=str)
-    args = parser.parse_args()
+    image1 = cam.get_image()
+    image1 = pygame.transform.scale(image1, (800, 600))
+    screen.blit(image1, (0,0))
+    pygame.display.update()
 
     # try:
     audio.classify_audio(model=args.model_file, callback=handle_results)
