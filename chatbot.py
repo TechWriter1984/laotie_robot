@@ -10,7 +10,7 @@ import io
 from random import choice
 from datetime import datetime
 
-class Chatbot:
+class Chatbot():
     
     def __init__(self):
 
