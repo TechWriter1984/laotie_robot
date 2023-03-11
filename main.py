@@ -13,6 +13,7 @@ import sys
 import argparse
 
 import pygame
+from pygame.locals import *
 import pygame.camera
 
 bot = Chatbot()
