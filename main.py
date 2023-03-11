@@ -8,41 +8,26 @@
 from chatbot import Chatbot
 from chassis import KeyboardChassis
 from aiymakerkit import audio
+from camera import CameraEye
 
 import sys
 import argparse
 
-import pygame
-from pygame.locals import *
-import pygame.camera
-
 bot = Chatbot()
-# sc = SmartCamera()
+ce = CameraEye()
 kc = KeyboardChassis()
 
 parser = argparse.ArgumentParser()
 parser.add_argument('model_file', type=str)
 args = parser.parse_args()
 
-# pygame.init()
-# pygame.camera.init()
-
-# screen = pygame.display.set_mode((800, 600), 0)
-# pygame.display.set_caption("老铁机器人")
-# cam_list = pygame.camera.list_cameras()
-# cam = pygame.camera.Camera(cam_list[0], (640, 480))
-# cam.start()
-
-# else:
-#     raise ValueError("未能启动摄像头！请检查摄像头连接是否正常，然后重新启动。")
-
 def handle_results(label, score):
     print('CALLBACK: ', label, '=>', score)
     bot.greeting()
     if label == '4 laotie':
         bot.greeting()
-    elif label == '2 cheese':
-        sc.capture_photo()
+    # elif label == '2 cheese':
+    #     sc.capture_photo()
     elif label == '0 Background Noise':
         bot.dontknow()
 
@@ -50,10 +35,10 @@ def handle_results(label, score):
 
 while True:
 
-    # image1 = cam.get_image()
-    # image1 = pygame.transform.scale(image1, (800, 600))
-    # screen.blit(image1, (0,0))
-    # pygame.display.update()
+    image1 = cam.get_image()
+    image1 = pygame.transform.scale(image1, (800, 600))
+    screen.blit(image1, (0,0))
+    pygame.display.update()
 
     # try:
     audio.classify_audio(model=args.model_file, callback=handle_results)
@@ -63,7 +48,7 @@ while True:
 
     for event in pygame.event.get():
       if event.type == pygame.QUIT:
-        kc.cam.stop()
+        cam.stop()
         pygame.quit()
         sys.exit()
       # elif event.type == pygame.KEYDOWN and event.key == pygame.K_KP_ENTER:

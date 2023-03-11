@@ -14,17 +14,8 @@ class KeyboardChassis():
     def __init__(self):
 
         pygame.init()
-        pygame.camera.init()
-        self.screen = pygame.display.set_mode((800, 600), 0)
+        self.screen = pygame.display.set_mode((400, 300))
         pygame.display.set_caption("老铁1号")
-        self.cam_list = pygame.camera.list_cameras()
-        self.cam = pygame.camera.Camera(cam_list[0], (640, 480))
-        self.cam.start()
-
-        self.image1 = cam.get_image()
-        self.image1 = pygame.transform.scale(image1, (800, 600))
-        self.screen.blit(image1, (0,0))
-        pygame.display.update()
 
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
@@ -42,7 +33,7 @@ class KeyboardChassis():
         self.pwm1.start(0)
         self.pwm2.start(0)
 
-        # running = True
+        running = True
 
     def turning_right(self):
         self.pwm1.ChangeDutyCycle(50)
