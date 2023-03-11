@@ -4,6 +4,11 @@
 # @Author  :   TechWriter1984
 # @E-mail  :   oopswow@126.com
 
+# turn off alsa output
+from ctypes import *
+from contextlib import contextmanager
+import pyaudio
+
 # from smart_camera import SmartCamera
 from chatbot import Chatbot
 from chassis import KeyboardChassis
@@ -15,6 +20,19 @@ import argparse
 import pygame
 from pygame.locals import *
 import pygame.camera
+
+# turn off alsa output
+ERROR_HANDLER_FUNC = CFUNCTYPE(None, c_char_p, c_int, c_char_p, c_int, c_char_p)
+
+def py_error_handler(filename, line, function, err, fmt):
+    pass
+
+c_error_handler = ERROR_HANDLER_FUNC(py_error_handler)
+
+@contextmanager
+def noalsaerr():
+    asound = cdll.LoadLibrary('libasound.so')
+    asound.snd_lib_error_set_handler(None)
 
 bot = Chatbot()
 # sc = SmartCamera()
@@ -60,6 +78,10 @@ while True:
         
     # finally:
     #     cam.stop()
+
+    with noalsaerr():
+        p = pyaudio.PyAudio()
+    stream = p.open(format=pyaduio.paFloat32, channels=1, rate=44100, output=1)
 
     for event in pygame.event.get():
       if event.type == pygame.QUIT:
