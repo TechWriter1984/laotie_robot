@@ -1,0 +1,59 @@
+ALSA lib dlmisc.c:170:(snd_dlsym_verify) unable to verify version for symbol snd_func_private_integer
+ALSA lib conf.c:4556:(_snd_config_evaluate) symbol snd_func_private_integer is not defined inside (null)
+ALSA lib conf.c:5047:(snd_config_expand) Evaluate error: No such device or address
+ALSA lib conf.c:3694:(snd_config_hook_load) Unable to expand filenames in the pre-load section
+ALSA lib conf.c:3572:(snd_config_hooks_call) function snd_config_hook_load_for_all_cards returned error: No such device or address
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.front
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.rear
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.center_lfe
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.side
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround21
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround21
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround40
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround41
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround50
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround51
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround71
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.iec958
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.iec958
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.iec958
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.hdmi
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.hdmi
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.modem
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.modem
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.phoneline
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.phoneline
+Cannot connect to server socket err = No such file or directory
+Cannot connect to server request channel
+jack server is not running or cannot be started
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+Cannot connect to server socket err = No such file or directory
+Cannot connect to server request channel
+jack server is not running or cannot be started
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+ALSA lib pcm_oss.c:377:(_snd_pcm_oss_open) Unknown field port
+ALSA lib pcm_oss.c:377:(_snd_pcm_oss_open) Unknown field port
+ALSA lib pcm_a52.c:823:(_snd_pcm_a52_open) a52 is only for playback
+ALSA lib conf.c:5014:(snd_config_expand) Unknown parameters {AES0 0x6 AES1 0x82 AES2 0x0 AES3 0x2  CARD 0}
+ALSA lib pcm.c:2565:(snd_pcm_open_noupdate) Unknown PCM iec958:{AES0 0x6 AES1 0x82 AES2 0x0 AES3 0x2  CARD 0}
+ALSA lib pcm_usb_stream.c:486:(_snd_pcm_usb_stream_open) Invalid type for card
+ALSA lib pcm_usb_stream.c:486:(_snd_pcm_usb_stream_open) Invalid type for card
+ALSA lib pcm_direct.c:2023:(snd1_pcm_direct_parse_open_conf) Unknown field tstamp_type
+Cannot connect to server socket err = No such file or directory
+Cannot connect to server request channel
+jack server is not running or cannot be started
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+Full dictionary is not installed for 'zh'
+Traceback (most recent call last):
+  File "_ctypes/callbacks.c", line 232, in 'calling callback function'
+  File "/home/pi/.local/lib/python3.7/site-packages/pyttsx3/drivers/espeak.py", line 166, in _onSynth
+    os.system('ffmpeg -y -i {} {} -loglevel quiet'.format(stream.name, self.decode_numeric(event.user_data)))
+  File "/home/pi/.local/lib/python3.7/site-packages/pyttsx3/drivers/espeak.py", line 46, in decode_numeric
+    return self._numerise_buffer[int(data) - 1]
+IndexError: list index out of range
+WARNING: Dropping input audio buffer
+WARNING: Dropping input audio buffer
+WARNING: Dropping input audio buffer
