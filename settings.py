@@ -5,5 +5,5 @@ class Settings():
         self.screen_width = 800
         self.screen_height = 600
         self.camera_width = 640
-        self camera_width = 480
+        self.camera_width = 480
 
