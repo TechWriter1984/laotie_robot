@@ -41,6 +41,24 @@ def handle_results(label, score):
         ce.capture_photo()
     elif label == '0 Background Noise':
         bot.dontknow()
+    elif lable == '3 forward'
+        kc.pwm1.ChangeDutyCycle(50)
+        kc.pwm2.ChangeDutyCycle(50)
+        kc.moving_forward()
+    elif lable == '1 backward'
+        kc.pwm1.ChangeDutyCycle(50)
+        kc.pwm2.ChangeDutyCycle(50)
+        kc.moving_backward()
+    elif lable == '5 left'
+        kc.pwm1.ChangeDutyCycle(50)
+        kc.pwm2.ChangeDutyCycle(50)
+        kc.turning_left
+    elif lable == '6 right'
+        kc.pwm1.ChangeDutyCycle(50)
+        kc.pwm2.ChangeDutyCycle(50)
+        kc.turning_right()
+    elif lable == '7 stop'
+        kc.stop()
 
     return True
 
@@ -58,28 +76,28 @@ while True:
     # finally:
     #     cam.stop()
 
-    for event in pygame.event.get():
-      if event.type == pygame.QUIT:
-        ce.cam.stop()
-        pygame.quit()
-        sys.exit()
-      # elif event.type == pygame.KEYDOWN and event.key == pygame.K_KP_ENTER:
-      #     sc.capture_photo()
-      elif event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
-          kc.pwm1.ChangeDutyCycle(50)
-          kc.pwm2.ChangeDutyCycle(50)
-          kc.moving_forward()
-      elif event.type == pygame.KEYDOWN and event.key == pygame.K_DOWN:
-          kc.pwm1.ChangeDutyCycle(50)
-          kc.pwm2.ChangeDutyCycle(50)        
-          kc.moving_backward()
-      elif event.type == pygame.KEYDOWN and event.key == pygame.K_LEFT:
-          kc.pwm1.ChangeDutyCycle(50)
-          kc.pwm2.ChangeDutyCycle(50)      
-          kc.turning_left()
-      elif event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
-          kc.pwm1.ChangeDutyCycle(50)
-          kc.pwm2.ChangeDutyCycle(50)
-          kc.turning_right()
-      elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
-          kc.stop()
+    # for event in pygame.event.get():
+    #   if event.type == pygame.QUIT:
+    #     ce.cam.stop()
+    #     pygame.quit()
+    #     sys.exit()
+    #   # elif event.type == pygame.KEYDOWN and event.key == pygame.K_KP_ENTER:
+    #   #     sc.capture_photo()
+    #   elif event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
+    #       kc.pwm1.ChangeDutyCycle(50)
+    #       kc.pwm2.ChangeDutyCycle(50)
+    #       kc.moving_forward()
+    #   elif event.type == pygame.KEYDOWN and event.key == pygame.K_DOWN:
+    #       kc.pwm1.ChangeDutyCycle(50)
+    #       kc.pwm2.ChangeDutyCycle(50)        
+    #       kc.moving_backward()
+    #   elif event.type == pygame.KEYDOWN and event.key == pygame.K_LEFT:
+    #       kc.pwm1.ChangeDutyCycle(50)
+    #       kc.pwm2.ChangeDutyCycle(50)      
+    #       kc.turning_left()
+    #   elif event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
+    #       kc.pwm1.ChangeDutyCycle(50)
+    #       kc.pwm2.ChangeDutyCycle(50)
+    #       kc.turning_right()
+    #   elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+    #       kc.stop()

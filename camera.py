@@ -18,10 +18,10 @@ class CameraEye():
             raise ValueError("没检测到摄像头！")
         self.cam = pygame.camera.Camera(self.cam_list[0], (640, 480))
         self.cam.start()
-        self.image1 = self.cam.get_image()
-        self.image1 = pygame.transform.scale(self.image1, (640, 480))
-        self.screen.blit(self.image1,(0,0))
-        pygame.display.update()
+        # self.image1 = self.cam.get_image()
+        # self.image1 = pygame.transform.scale(self.image1, (640, 480))
+        # self.screen.blit(self.image1,(0,0))
+        # pygame.display.update()
 
 
     def capture_photo(self):
@@ -31,3 +31,10 @@ class CameraEye():
         filename = os.path.join(PICTURE_DIR, filename)
         pygame.image.save(self.image1,"filename")
         print('Saved', filename)
+
+    while True:
+
+        self.image1 = self.cam.get_image()
+        self.image1 = pygame.transform.scale(self.image1, (640, 480))
+        self.screen.blit(self.image1,(0,0))
+        pygame.display.update()
