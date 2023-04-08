@@ -16,9 +16,9 @@ import argparse
 # capturing images from a camera. `pygame` is the main module for Pygame, `pygame.camera` is a module
 # for accessing cameras, and `from pygame.locals import *` is importing constants and functions from
 # the Pygame.locals module, which includes event types and key constants.
-import pygame
-import pygame.camera
-from pygame.locals import *
+# import pygame
+# import pygame.camera
+# from pygame.locals import *
 
 
 bot = Chatbot()
@@ -44,7 +44,8 @@ def handle_results(label, score):
 while True:
 
     pygame.init()
-
+    pygame.camera.init()
+    
     # for event in pygame.event.get():
     #   if event.type == pygame.QUIT:
     #     self.cam.stop()
