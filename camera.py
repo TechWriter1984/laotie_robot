@@ -25,8 +25,9 @@ class CameraEye():
 
 
     def capture_photo(self):
+        PICTURE_DIR = os.path.join(os.path.expanduser('~'), 'Pictures')
         timestamp = datetime.now()
         filename = "VOICE_CAM_" + timestamp.strftime("%Y%m%d%H%M%S") + '.jpg'
-        filename = os.path.join(self.PICTURE_DIR, filename)
+        filename = os.path.join(PICTURE_DIR, filename)
         pygame.image.save(self.image1,"filename")
         print('Saved', filename)
