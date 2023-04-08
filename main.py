@@ -10,7 +10,10 @@ from chassis import KeyboardChassis
 from aiymakerkit import audio
 from camera import CameraEye
 
-import sys
+from picamera import PiCamera
+from datetime import datetime
+import os
+
 import argparse
 import pygame
 import pygame.camera
@@ -23,9 +26,6 @@ from pygame.locals import *
 # import pygame.camera
 # from pygame.locals import *
 
-pygame.init()
-pygame.camera.init()
-
 bot = Chatbot()
 ce = CameraEye()
 kc = KeyboardChassis()
@@ -34,13 +34,23 @@ parser = argparse.ArgumentParser()
 parser.add_argument('model_file', type=str)
 args = parser.parse_args()
 
+def capture_photo(self):
+    PICTURE_DIR = os.path.join(os.path.expanduser('~'), 'Pictures')
+    IMAGE_SIZE = (640, 480)
+    photo_taking = PiCamera(resolution=IMAGE_SIZE)
+    timestamp = datetime.now()
+    filename = "VOICE_CAM_" + timestamp.strftime("%Y%m%d%H%M%S") + '.jpg'
+    filename = os.path.join(PICTURE_DIR, filename)
+    photo_taking.capture(filename)
+    print('Saved', filename)
+
 def handle_results(label, score):
     print('CALLBACK: ', label, '=>', score)
     bot.greeting()
     if label == '6 老铁':
         bot.greeting()
     elif label == '7 茄子':
-        ce.capture_photo()
+        capture_photo()
     elif label == '0 Background Noise':
         bot.dontknow()
     elif label == '2 前进':
@@ -65,13 +75,7 @@ def handle_results(label, score):
     return True
 
 while True:
-
-    image1 = ce.cam.get_image()
-    image1 = pygame.transform.scale(image1, (800,600))
-    ce.screen.blit(image1, (0, 0))
-    pygame.display.update()
     
-
     # try:
     audio.classify_audio(model=args.model_file, callback=handle_results)
         

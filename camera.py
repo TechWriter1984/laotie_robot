@@ -1,10 +1,9 @@
-import sys
 import pygame
 import pygame.camera
 from pygame.locals import *
 from datetime import datetime
 import os
-import sys
+
 
 class CameraEye():
 
@@ -18,16 +17,8 @@ class CameraEye():
             raise ValueError("没检测到摄像头！")
         self.cam = pygame.camera.Camera(self.cam_list[0], (800, 600))
         self.cam.start()
-        # self.image1 = self.cam.get_image()
-        # self.image1 = pygame.transform.scale(self.image1, (640, 480))
-        # self.screen.blit(self.image1,(0,0))
-        # pygame.display.update()
+        self.image1 = self.cam.get_image()
+        self.image1 = pygame.transform.scale(self.image1, (640, 480))
+        self.screen.blit(self.image1,(0,0))
+        pygame.display.update()
 
-
-    def capture_photo(self):
-        PICTURE_DIR = os.path.join(os.path.expanduser('~'), 'Pictures')
-        timestamp = datetime.now()
-        filename = "VOICE_CAM_" + timestamp.strftime("%Y%m%d%H%M%S") + '.jpg'
-        filename = os.path.join(PICTURE_DIR, filename)
-        pygame.image.save(self.image1,"filename")
-        print('Saved', filename)
