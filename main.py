@@ -12,6 +12,9 @@ from camera import CameraEye
 
 import sys
 import argparse
+import pygame
+import pygame.camera
+from pygame.locals import *
 # These lines of code are importing the necessary modules and functions from the Pygame library for
 # capturing images from a camera. `pygame` is the main module for Pygame, `pygame.camera` is a module
 # for accessing cameras, and `from pygame.locals import *` is importing constants and functions from
