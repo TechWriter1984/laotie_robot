@@ -19,7 +19,7 @@ class CameraEye():
         self.cam = pygame.camera.Camera(self.cam_list[0], (640, 480))
         self.cam.start()
         self.image1 = self.cam.get_image()
-        self.image1 = pygame.transform.scale(self.image1, (800, 600))
+        self.image1 = pygame.transform.scale(self.image1, (640, 480))
         self.screen.blit(self.image1,(0,0))
         pygame.display.update()
 
