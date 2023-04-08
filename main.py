@@ -42,7 +42,7 @@ while True:
 
     pygame.init()
     laotie_settings = Settings()
-    screen = pygame.display.set_mode(laotie_settings.screen_width, laotie_settings.screen_height)
+    screen = pygame.display.set_mode((laotie_settings.screen_width, laotie_settings.screen_height))
     pygame.display.set_caption("老铁机器人")
     cam_list = pygame.camera.list_cameras()
     cam = pygame.camera.Camera(cam_list[0], (640, 480))
