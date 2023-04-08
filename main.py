@@ -41,23 +41,23 @@ def handle_results(label, score):
         ce.capture_photo()
     elif label == '0 Background Noise':
         bot.dontknow()
-    elif lable == '3 forward'
+    elif label == '3 forward':
         kc.pwm1.ChangeDutyCycle(50)
         kc.pwm2.ChangeDutyCycle(50)
         kc.moving_forward()
-    elif lable == '1 backward'
+    elif label == '1 backward':
         kc.pwm1.ChangeDutyCycle(50)
         kc.pwm2.ChangeDutyCycle(50)
         kc.moving_backward()
-    elif lable == '5 left'
+    elif label == '5 left':
         kc.pwm1.ChangeDutyCycle(50)
         kc.pwm2.ChangeDutyCycle(50)
         kc.turning_left
-    elif lable == '6 right'
+    elif label == '6 right':
         kc.pwm1.ChangeDutyCycle(50)
         kc.pwm2.ChangeDutyCycle(50)
         kc.turning_right()
-    elif lable == '7 stop'
+    elif label == '7 stop':
         kc.stop()
 
     return True
