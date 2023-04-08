@@ -31,10 +31,3 @@ class CameraEye():
         filename = os.path.join(PICTURE_DIR, filename)
         pygame.image.save(self.image1,"filename")
         print('Saved', filename)
-
-    while True:
-
-        self.image1 = self.cam.get_image()
-        self.image1 = pygame.transform.scale(self.image1, (640, 480))
-        self.screen.blit(self.image1,(0,0))
-        pygame.display.update()

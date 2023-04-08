@@ -64,11 +64,11 @@ def handle_results(label, score):
 
 while True:
 
-    # for event in pygame.event.get():
-    #   if event.type == pygame.QUIT:
-    #     self.cam.stop()
-    #     pygame.quit()
-    #     sys.exit()
+    image1 = ce.cam.get_image()
+    image1 = pygame.transform.scale(image1, (640,480))
+    ce.screen.blit(image1, (0, 0))
+    pygame.display.update()
+    
 
     # try:
     audio.classify_audio(model=args.model_file, callback=handle_results)
