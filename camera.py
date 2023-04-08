@@ -6,9 +6,9 @@ from datetime import datetime
 import os
 import sys
 
-pygame.init()
-pygame.camera.init()
-pygame.display.set_caption("老铁机器人")
+# pygame.init()
+# pygame.camera.init()
+# pygame.display.set_caption("老铁机器人")
 # pygame.display.update()
 
 class CameraEye():

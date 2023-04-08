@@ -26,8 +26,8 @@ def handle_results(label, score):
     bot.greeting()
     if label == '4 laotie':
         bot.greeting()
-    # elif label == '2 cheese':
-    #     sc.capture_photo()
+    elif label == '2 cheese':
+        ce.capture_photo()
     elif label == '0 Background Noise':
         bot.dontknow()
 
@@ -39,6 +39,11 @@ while True:
     # image1 = pygame.transform.scale(image1, (800, 600))
     # screen.blit(image1, (0,0))
     # pygame.display.update()
+
+  pygame.init()
+  pygame.camera.init()
+  pygame.display.set_caption("老铁机器人")
+  pygame.display.update()
 
     # try:
     audio.classify_audio(model=args.model_file, callback=handle_results)
