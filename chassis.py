@@ -6,16 +6,10 @@
 
 import RPi.GPIO as GPIO
 import time
-import pygame
-from pygame.locals import *
 
 class KeyboardChassis():
 
     def __init__(self):
-
-        pygame.init()
-        self.screen = pygame.display.set_mode((400, 300))
-        pygame.display.set_caption("老铁1号")
 
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
@@ -33,7 +27,7 @@ class KeyboardChassis():
         self.pwm1.start(0)
         self.pwm2.start(0)
 
-        running = True
+        # running = True
 
     def turning_right(self):
         self.pwm1.ChangeDutyCycle(50)

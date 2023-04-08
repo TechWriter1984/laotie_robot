@@ -46,9 +46,6 @@ def handle_results(label, score):
 
 while True:
 
-    pygame.init()
-    pygame.camera.init()
-    
     # for event in pygame.event.get():
     #   if event.type == pygame.QUIT:
     #     self.cam.stop()
