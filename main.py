@@ -54,20 +54,12 @@ def handle_results(label, score):
     elif label == '0 Background Noise':
         bot.dontknow()
     elif label == '2 前进':
-        kc.pwm1.ChangeDutyCycle(50)
-        kc.pwm2.ChangeDutyCycle(50)
         kc.moving_forward()
     elif label == '4 后退':
-        kc.pwm1.ChangeDutyCycle(50)
-        kc.pwm2.ChangeDutyCycle(50)
         kc.moving_backward()
     elif label == '5 左转':
-        kc.pwm1.ChangeDutyCycle(50)
-        kc.pwm2.ChangeDutyCycle(50)
         kc.turning_left
     elif label == '3 右转':
-        kc.pwm1.ChangeDutyCycle(50)
-        kc.pwm2.ChangeDutyCycle(50)
         kc.turning_right()
     elif label == '1 停':
         kc.stop()
