@@ -40,10 +40,10 @@ while True:
     # screen.blit(image1, (0,0))
     # pygame.display.update()
 
-  pygame.init()
-  pygame.camera.init()
-  pygame.display.set_caption("老铁机器人")
-  pygame.display.update()
+    pygame.init()
+    pygame.camera.init()
+    pygame.display.set_caption("老铁机器人")
+    pygame.display.update()
 
     # try:
     audio.classify_audio(model=args.model_file, callback=handle_results)
