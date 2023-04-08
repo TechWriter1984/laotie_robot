@@ -35,10 +35,10 @@ def handle_results(label, score):
 
 while True:
 
-    image1 = cam.get_image()
-    image1 = pygame.transform.scale(image1, (800, 600))
-    screen.blit(image1, (0,0))
-    pygame.display.update()
+    # image1 = cam.get_image()
+    # image1 = pygame.transform.scale(image1, (800, 600))
+    # screen.blit(image1, (0,0))
+    # pygame.display.update()
 
     # try:
     audio.classify_audio(model=args.model_file, callback=handle_results)
@@ -48,7 +48,7 @@ while True:
 
     for event in pygame.event.get():
       if event.type == pygame.QUIT:
-        cam.stop()
+        ce.cam.stop()
         pygame.quit()
         sys.exit()
       # elif event.type == pygame.KEYDOWN and event.key == pygame.K_KP_ENTER:
