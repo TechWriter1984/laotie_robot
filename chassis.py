@@ -29,9 +29,7 @@ class KeyboardChassis():
 
         # running = True
 
-    def turning_right(self):
-        self.pwm1.ChangeDutyCycle(50)
-        self.pwm2.ChangeDutyCycle(50)        
+    def turning_right(self):       
         GPIO.output(3, True)
         GPIO.output(4, False)
         GPIO.output(20, True)
@@ -41,8 +39,6 @@ class KeyboardChassis():
         print('---------------------')
 
     def turning_left(self):
-        self.pwm1.ChangeDutyCycle(50)
-        self.pwm2.ChangeDutyCycle(50)
         GPIO.output(3, False)        
         GPIO.output(4, True)
         GPIO.output(20, False)
@@ -52,8 +48,6 @@ class KeyboardChassis():
         print('---------------------')
 
     def moving_forward(self):
-        self.pwm1.ChangeDutyCycle(50)
-        self.pwm2.ChangeDutyCycle(50)
         GPIO.output(3, True)       
         GPIO.output(4, False)
         GPIO.output(20, False)
@@ -63,8 +57,6 @@ class KeyboardChassis():
         print('---------------------')
 
     def moving_backward(self):
-        self.pwm1.ChangeDutyCycle(50)
-        self.pwm2.ChangeDutyCycle(50)
         GPIO.output(3, False)       
         GPIO.output(4, True)
         GPIO.output(20, True)
@@ -74,8 +66,6 @@ class KeyboardChassis():
         print('---------------------')
 
     def stop(self):
-        self.pwm1.ChangeDutyCycle(50)
-        self.pwm2.ChangeDutyCycle(50)
         GPIO.output(3, False)      
         GPIO.output(4, False)
         GPIO.output(20, False)

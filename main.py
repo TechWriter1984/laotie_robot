@@ -66,12 +66,20 @@ while True:
       # elif event.type == pygame.KEYDOWN and event.key == pygame.K_KP_ENTER:
       #     sc.capture_photo()
       elif event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
+          kc.pwm1.ChangeDutyCycle(50)
+          kc.pwm2.ChangeDutyCycle(50)
           kc.moving_forward()
       elif event.type == pygame.KEYDOWN and event.key == pygame.K_DOWN:
+          kc.pwm1.ChangeDutyCycle(50)
+          kc.pwm2.ChangeDutyCycle(50)        
           kc.moving_backward()
       elif event.type == pygame.KEYDOWN and event.key == pygame.K_LEFT:
+          kc.pwm1.ChangeDutyCycle(50)
+          kc.pwm2.ChangeDutyCycle(50)      
           kc.turning_left()
       elif event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
+          kc.pwm1.ChangeDutyCycle(50)
+          kc.pwm2.ChangeDutyCycle(50)
           kc.turning_right()
       elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
           kc.stop()
