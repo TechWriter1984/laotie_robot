@@ -37,29 +37,29 @@ args = parser.parse_args()
 def handle_results(label, score):
     print('CALLBACK: ', label, '=>', score)
     bot.greeting()
-    if label == '4 laotie':
+    if label == '6 老铁':
         bot.greeting()
-    elif label == '2 cheese':
+    elif label == '7 茄子':
         ce.capture_photo()
     elif label == '0 Background Noise':
         bot.dontknow()
-    elif label == '3 forward':
+    elif label == '2 前进':
         kc.pwm1.ChangeDutyCycle(50)
         kc.pwm2.ChangeDutyCycle(50)
         kc.moving_forward()
-    elif label == '1 backward':
+    elif label == '4 后退':
         kc.pwm1.ChangeDutyCycle(50)
         kc.pwm2.ChangeDutyCycle(50)
         kc.moving_backward()
-    elif label == '5 left':
+    elif label == '5 左转':
         kc.pwm1.ChangeDutyCycle(50)
         kc.pwm2.ChangeDutyCycle(50)
         kc.turning_left
-    elif label == '6 right':
+    elif label == '3 右转':
         kc.pwm1.ChangeDutyCycle(50)
         kc.pwm2.ChangeDutyCycle(50)
         kc.turning_right()
-    elif label == '7 stop':
+    elif label == '1 停':
         kc.stop()
 
     return True
