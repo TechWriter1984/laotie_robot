@@ -67,7 +67,7 @@ def handle_results(label, score):
 while True:
 
     image1 = ce.cam.get_image()
-    image1 = pygame.transform.scale(image1, (640,480))
+    image1 = pygame.transform.scale(image1, (800,600))
     ce.screen.blit(image1, (0, 0))
     pygame.display.update()
     

@@ -16,7 +16,7 @@ class CameraEye():
         self.cam_list = pygame.camera.list_cameras()
         if not self.cam_list:
             raise ValueError("没检测到摄像头！")
-        self.cam = pygame.camera.Camera(self.cam_list[0], (640, 480))
+        self.cam = pygame.camera.Camera(self.cam_list[0], (800, 600))
         self.cam.start()
         # self.image1 = self.cam.get_image()
         # self.image1 = pygame.transform.scale(self.image1, (640, 480))
