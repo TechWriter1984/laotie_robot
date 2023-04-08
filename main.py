@@ -9,10 +9,13 @@ from chatbot import Chatbot
 from chassis import KeyboardChassis
 from aiymakerkit import audio
 from camera import CameraEye
-from settings import Settings
 
 import sys
 import argparse
+# These lines of code are importing the necessary modules and functions from the Pygame library for
+# capturing images from a camera. `pygame` is the main module for Pygame, `pygame.camera` is a module
+# for accessing cameras, and `from pygame.locals import *` is importing constants and functions from
+# the Pygame.locals module, which includes event types and key constants.
 import pygame
 import pygame.camera
 from pygame.locals import *
@@ -41,16 +44,13 @@ def handle_results(label, score):
 while True:
 
     pygame.init()
-    laotie_settings = Settings()
-    screen = pygame.display.set_mode((laotie_settings.screen_width, laotie_settings.screen_height))
-    pygame.display.set_caption("老铁机器人")
-    cam_list = pygame.camera.list_cameras()
-    cam = pygame.camera.Camera(cam_list[0], (640, 480))
-    cam.start()
-    image1 = cam.get_image()
-    image1 = pygame.transform.scale(image1, (800, 600))
-    screen.blit(image1,(0,0))
-    pygame.display.update()
+    pygame.camera.init()
+
+    # for event in pygame.event.get():
+    #   if event.type == pygame.QUIT:
+    #     self.cam.stop()
+    #     pygame.quit()
+    #     sys.exit()
 
     # try:
     audio.classify_audio(model=args.model_file, callback=handle_results)
