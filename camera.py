@@ -10,7 +10,7 @@ class CameraEye():
 
     def __init__(self):
         # pygame.init()
-        # pygame.camera.init()
+        pygame.camera.init()
         self.screen = pygame.display.set_mode((800, 600), 0)
         pygame.display.set_caption("老铁机器人")
         self.cam_list = pygame.camera.list_cameras()
