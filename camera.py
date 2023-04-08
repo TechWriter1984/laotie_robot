@@ -34,9 +34,8 @@ class CameraEye():
         pygame.image.save(self.image1,"filename")
         print('Saved', filename)
 
-
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            self.cam.stop()
-            pygame.quit()
-            sys.exit()
+    # for event in pygame.event.get():
+    #     if event.type == pygame.QUIT:
+    #         self.cam.stop()
+    #         pygame.quit()
+    #         sys.exit()
