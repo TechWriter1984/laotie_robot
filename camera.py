@@ -9,7 +9,7 @@ import sys
 pygame.init()
 pygame.camera.init()
 pygame.display.set_caption("老铁机器人")
-pygame.display.update()
+# pygame.display.update()
 
 class CameraEye():
 
@@ -24,7 +24,7 @@ class CameraEye():
         self.image1 = cam.get_image()
         self.image1 = pygame.transform.scale(image1, (800, 600))
         self.screen.blit(image1,(0,0))
-        # pygame.display.update()
+        pygame.display.update()
 
 
     def capture_photo(self):
