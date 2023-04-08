@@ -34,7 +34,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('model_file', type=str)
 args = parser.parse_args()
 
-def capture_photo(self):
+def capture_photo():
     PICTURE_DIR = os.path.join(os.path.expanduser('~'), 'Pictures')
     IMAGE_SIZE = (640, 480)
     photo_taking = PiCamera(resolution=IMAGE_SIZE)
