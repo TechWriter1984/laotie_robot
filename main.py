@@ -9,9 +9,14 @@ from chatbot import Chatbot
 from chassis import KeyboardChassis
 from aiymakerkit import audio
 from camera import CameraEye
+from settings import Settings
 
 import sys
 import argparse
+import pygame
+import pygame.camera
+from pygame.locals import *
+
 
 bot = Chatbot()
 ce = CameraEye()
@@ -34,6 +39,18 @@ def handle_results(label, score):
     return True
 
 while True:
+
+    pygame.init()
+    laotie_settings = Settings()
+    screen = pygame.display.set_mode(laotie_settings.screen_width, laotie_settings.screen_height)
+    pygame.display.set_caption("老铁机器人")
+    cam_list = pygame.camera.list_cameras()
+    cam = pygame.camera.Camera(cam_list[0], (640, 480))
+    cam.start()
+    image1 = cam.get_image()
+    image1 = pygame.transform.scale(image1, (800, 600))
+    screen.blit(image1,(0,0))
+    pygame.display.update()
 
     # try:
     audio.classify_audio(model=args.model_file, callback=handle_results)
