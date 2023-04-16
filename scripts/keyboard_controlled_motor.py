@@ -22,9 +22,9 @@ cam.start()
 snapshot = pygame.surface.Surface((800,600),0,screen)
 if cam.query_image():
     snapshot = cam.get_image(snapshot)
-# image1 = pygame.transform.scale(image1, (800, 600))
+snapshot = pygame.transform.scale(snapshot, (800, 600))
 screen.blit(snapshot, (0, 0))
-pygame.display.flip()
+pygame.display.update()
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
