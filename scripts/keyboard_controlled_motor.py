@@ -20,10 +20,11 @@ if not cam_list:
 cam = pygame.camera.Camera(cam_list[0], (800, 600))
 cam.start()
 snapshot = pygame.surface.Surface((800,600),0,screen)
-snapshot = cam.get_image(snapshot)
+if cam.query_image():
+    snapshot = cam.get_image(snapshot)
 # image1 = pygame.transform.scale(image1, (800, 600))
 screen.blit(snapshot, (0, 0))
-pygame.display.update()
+pygame.display.flip()
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
