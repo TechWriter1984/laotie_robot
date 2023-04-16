@@ -12,7 +12,7 @@ from pygame.locals import *
 
 pygame.init()
 pygame.camera.init()
-screen = pygame.display.set_mode((800, 600), 0)
+screen = pygame.display.set_mode((800, 600), pygame.RESIZABLE)
 pygame.display.set_caption("老铁机器人")
 cam_list = pygame.camera.list_cameras()
 if not cam_list:
@@ -22,7 +22,7 @@ cam.start()
 image1 = cam.get_image()
 image1 = pygame.transform.scale(image1, (800, 600))
 screen.blit(image1, (0, 0))
-pygame.display.flip()
+pygame.display.update()
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
