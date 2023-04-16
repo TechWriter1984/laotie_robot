@@ -7,6 +7,7 @@
 import RPi.GPIO as GPIO
 import time
 import pygame
+import pygame.camera
 from pygame.locals import *
 
 pygame.init()
