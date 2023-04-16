@@ -22,7 +22,7 @@ cam.start()
 image1 = cam.get_image()
 image1 = pygame.transform.scale(image1, (800, 600))
 screen.blit(image1, (0, 0))
-pygame.display.update()
+pygame.display.update(image1)
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
