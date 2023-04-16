@@ -12,17 +12,17 @@ from pygame.locals import *
 
 pygame.init()
 pygame.camera.init()
-screen = pygame.display.set_mode((800, 600), pygame.RESIZABLE)
+screen = pygame.display.set_mode((640, 480), pygame.RESIZABLE)
 pygame.display.set_caption("老铁机器人")
 cam_list = pygame.camera.list_cameras()
 if not cam_list:
   raise ValueError("没检测到摄像头！")
-cam = pygame.camera.Camera(cam_list[0], (800, 600))
+cam = pygame.camera.Camera(cam_list[0], (32, 24))
 cam.start()
 image1 = cam.get_image()
-image1 = pygame.transform.scale(image1, (800, 600))
+image1 = pygame.transform.scale(image1, (640, 480))
 screen.blit(image1, (0, 0))
-pygame.display.update(image1)
+pygame.display.update()
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
