@@ -27,7 +27,6 @@ cam.start()
 snapshot = pygame.surface.Surface((800, 600), 0, screen)
 if cam.query_image():
     snapshot = cam.get_image(snapshot)
-snapshot = cam.get_image(snapshot)
 screen.blit(snapshot, (0, 0))
 pygame.display.flip()
 
