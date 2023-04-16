@@ -11,6 +11,7 @@ import pygame.camera
 from pygame.locals import *
 
 pygame.init()
+pygame.camera.init()
 screen = pygame.display.set_mode((800, 600), 0)
 pygame.display.set_caption("老铁机器人")
 cam_list = pygame.camera.list_cameras()
