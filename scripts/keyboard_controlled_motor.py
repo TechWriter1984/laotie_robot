@@ -19,9 +19,10 @@ if not cam_list:
   raise ValueError("没检测到摄像头！")
 cam = pygame.camera.Camera(cam_list[0], (800, 600))
 cam.start()
-image1 = cam.get_image()
-image1 = pygame.transform.scale(image1, (800, 600))
-screen.blit(image1, (0, 0))
+snapshot = pygame.surface.Surface((800,600),0,screen)
+snapshot = cam.get_image(snapshot)
+# image1 = pygame.transform.scale(image1, (800, 600))
+screen.blit(snapshot, (0, 0))
 pygame.display.update()
 
 GPIO.setmode(GPIO.BCM)
