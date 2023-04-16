@@ -14,7 +14,7 @@ screen = pygame.display.set_mode((800, 600), 0)
 pygame.display.set_caption("老铁机器人")
 cam_list = pygame.camera.list_cameras()
 if not cam_list:
-  raise.ValueError("没检测到摄像头！")
+  raise ValueError("没检测到摄像头！")
 cam = pygame.camera.Camera(cam_list[0], (800, 600))
 cam.start()
 image1 = cam.get_image()
