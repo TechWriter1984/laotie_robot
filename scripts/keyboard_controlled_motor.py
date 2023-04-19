@@ -87,23 +87,26 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        elif event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
-            pwm1.ChangeDutyCycle(50)
-            pwm2.ChangeDutyCycle(50)
-            moving_forward()
-        elif event.type == pygame.KEYDOWN and event.key == pygame.K_DOWN:
-            pwm1.ChangeDutyCycle(50)
-            pwm2.ChangeDutyCycle(50)
-            moving_backward()
-        elif event.type == pygame.KEYDOWN and event.key == pygame.K_LEFT:
-            pwm1.ChangeDutyCycle(50)
-            pwm2.ChangeDutyCycle(50)
-            turning_left()
-        elif event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
-            pwm1.ChangeDutyCycle(50)
-            pwm2.ChangeDutyCycle(50)
-            turning_right()
-        elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_UP:
+                pwm1.ChangeDutyCycle(50)
+                pwm2.ChangeDutyCycle(50)
+                moving_forward()
+            elif event.key == pygame.K_DOWN:
+                pwm1.ChangeDutyCycle(50)
+                pwm2.ChangeDutyCycle(50)
+                moving_backward()
+            elif event.key == pygame.K_LEFT:
+                pwm1.ChangeDutyCycle(50)
+                pwm2.ChangeDutyCycle(50)
+                turning_left()
+            elif event.key == pygame.K_RIGHT:
+                pwm1.ChangeDutyCycle(50)
+                pwm2.ChangeDutyCycle(50)
+                turning_right()
+            elif event.key == pygame.K_SPACE:
+                stop()
+        elif event.type == pygame.KEYUP:
             stop()
 
         # Capture camera image and update display (by ChatGPT)
