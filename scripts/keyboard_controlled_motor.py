@@ -84,35 +84,34 @@ def stop():
     print('---------------------')
 
 while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_UP:
-                pwm1.ChangeDutyCycle(50)
-                pwm2.ChangeDutyCycle(50)
-                moving_forward()
-            elif event.key == pygame.K_DOWN:
-                pwm1.ChangeDutyCycle(50)
-                pwm2.ChangeDutyCycle(50)
-                moving_backward()
-            elif event.key == pygame.K_LEFT:
-                pwm1.ChangeDutyCycle(50)
-                pwm2.ChangeDutyCycle(50)
-                turning_left()
-            elif event.key == pygame.K_RIGHT:
-                pwm1.ChangeDutyCycle(50)
-                pwm2.ChangeDutyCycle(50)
-                turning_right()
-            elif event.key == pygame.K_SPACE:
-                stop()
-        elif event.type == pygame.KEYUP:
-            stop()
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_UP]:
+        pwm1.ChangeDutyCycle(50)
+        pwm2.ChangeDutyCycle(50)
+        moving_forward()
+    elif keys[pygame.K_DOWN]:
+        pwm1.ChangeDutyCycle(50)
+        pwm2.ChangeDutyCycle(50)
+        moving_backward()
+    elif keys[pygame.K_LEFT]:
+        pwm1.ChangeDutyCycle(50)
+        pwm2.ChangeDutyCycle(50)
+        turning_left()
+    elif keys[pygame.K_RIGHT]:
+        pwm1.ChangeDutyCycle(50)
+        pwm2.ChangeDutyCycle(50)
+        turning_right()
+    elif keys[pygame.K_SPACE]:
+        stop()
+    else:
+        stop()
 
-        # Capture camera image and update display (by ChatGPT)
-        image1 = cam.get_image()
-        image1 = pygame.transform.scale(image1, (800, 600))
-        screen.blit(image1, (0, 0))
-        pygame.display.update()
+    # Capture camera image and update display (by ChatGPT)
+    image1 = cam.get_image()
+    image1 = pygame.transform.scale(image1, (800, 600))
+    screen.blit(image1, (0, 0))
+    pygame.display.update()
+
+    time.sleep(0.01) # add a small delay to avoid CPU hogging
 
 pygame.quit()
