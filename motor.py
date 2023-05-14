@@ -1,10 +1,8 @@
-'''
- # @ Author: XXL
- # @ Create Time: 2023-04-08 22:34:12
- # @ Modified by: XXL
- # @ Modified time: 2023-05-14 15:35:43
- # @ Description:
- '''
+# -*- coding: utf-8 -*-
+# @Time    :   2023/05/14 22:51:22
+# @FileName:   motor.py
+# @Author  :   TechWriter1984
+# @E-mail  :   oopswow@126.com
 
 import RPi.GPIO as GPIO
 import time
