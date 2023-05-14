@@ -12,6 +12,8 @@ import pygame
 import pygame.camera
 from pygame.locals import *
 
+pygame.init()
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
