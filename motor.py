@@ -1,24 +1,16 @@
-# -*- coding: utf-8 -*-
-# @Time    :   2022/12/05 17:30:30
-# @FileName:   pygame_motor_test.py
-# @Author  :   TechWriter1984
-# @E-mail  :   oopswow@126.com
+'''
+ # @ Author: XXL
+ # @ Create Time: 2023-04-08 22:34:12
+ # @ Modified by: Your name
+ # @ Modified time: 2023-05-14 15:35:43
+ # @ Description:
+ '''
 
 import RPi.GPIO as GPIO
 import time
 import pygame
 import pygame.camera
 from pygame.locals import *
-
-pygame.init()
-pygame.camera.init()
-screen = pygame.display.set_mode((800, 600), pygame.RESIZABLE)
-pygame.display.set_caption("老铁机器人")
-cam_list = pygame.camera.list_cameras()
-if not cam_list:
-    raise ValueError("没检测到摄像头！")
-cam = pygame.camera.Camera(cam_list[0], (800, 600))
-cam.start()
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -108,11 +100,5 @@ while running:
                 stop()
         elif event.type == pygame.KEYUP:
             stop()
-
-        # Capture camera image and update display (by ChatGPT)
-        image1 = cam.get_image()
-        image1 = pygame.transform.scale(image1, (800, 600))
-        screen.blit(image1, (0, 0))
-        pygame.display.update()
 
 pygame.quit()
