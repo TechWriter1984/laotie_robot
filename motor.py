@@ -1,7 +1,7 @@
 '''
  # @ Author: XXL
  # @ Create Time: 2023-04-08 22:34:12
- # @ Modified by: Your name
+ # @ Modified by: ChatGPT
  # @ Modified time: 2023-05-14 15:35:43
  # @ Description:
  '''
@@ -11,8 +11,17 @@ import time
 import pygame
 import pygame.camera
 from pygame.locals import *
+import threading
 
 pygame.init()
+pygame.camera.init()
+screen = pygame.display.set_mode((800, 600), pygame.RESIZABLE)
+pygame.display.set_caption("老铁机器人")
+cam_list = pygame.camera.list_cameras()
+if not cam_list:
+    raise ValueError("没检测到摄像头！")
+cam = pygame.camera.Camera(cam_list[0], (800, 600))
+cam.start()
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -30,77 +39,59 @@ pwm2 = GPIO.PWM(16, 80)
 pwm1.start(0)
 pwm2.start(0)
 
+movement_map = {
+    pygame.K_UP: (40, 40, True, False, False, True, '前进'),
+    pygame.K_DOWN: (40, 40, False, True, True, False, '后退'),
+    pygame.K_LEFT: (40, 40, False, True, False, True, '左转'),
+    pygame.K_RIGHT: (40, 40, True, False, True, False, '右转'),
+    pygame.K_SPACE: (0, 0, False, False, False, False, '立正')
+}
+
+def set_motor(pwm1_duty_cycle, pwm2_duty_cycle, gpio_3, gpio_4, gpio_20, gpio_21, message):
+    GPIO.output(3, gpio_3)
+    GPIO.output(4, gpio_4)
+    GPIO.output(20, gpio_20)
+    GPIO.output(21, gpio_21)
+    pwm1.ChangeDutyCycle(pwm1_duty_cycle)
+    pwm2.ChangeDutyCycle(pwm2_duty_cycle)
+    print('---------------------')
+    print(f'     老铁，{message}！    ')
+    print('---------------------')
+
+def process_movement(event):
+    if event.key in movement_map:
+        pwm1_duty_cycle, pwm2_duty_cycle, gpio_3, gpio_4, gpio_20, gpio_21, message = movement_map[event.key]
+        set_motor(pwm1_duty_cycle, pwm2_duty_cycle, gpio_3, gpio_4, gpio_20, gpio_21, message)
+    else:
+        set_motor(0, 0, False, False, False, False, '立正')
+
+def camera_loop():
+    while running:
+        image1 = cam.get_image()
+        image1 = pygame.transform.scale(image1, (800, 600))
+        screen.blit(image1, (0, 0))
+        pygame.display.update()
+
+def keyboard_loop():
+    global running
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+            elif event.type == pygame.KEYDOWN:
+                t = threading.Thread(target=process_movement, args=(event,))
+                t.start()
+            elif event.type == pygame.KEYUP:
+                set_motor(0, 0, False, False, False, False, '立正')
+
 running = True
 
-def turning_right():
-    GPIO.output(3, True)
-    GPIO.output(4, False)
-    GPIO.output(20, True)
-    GPIO.output(21, False)
-    print('---------------------')
-    print('     老铁，右转！    ')
-    print('---------------------')
+t1 = threading.Thread(target=camera_loop)
+t1.start()
 
-def turning_left():
-    GPIO.output(3, False)
-    GPIO.output(4, True)
-    GPIO.output(20, False)
-    GPIO.output(21, True)
-    print('---------------------')
-    print('     老铁，左转！    ')
-    print('---------------------')
+t2 = threading.Thread(target=keyboard_loop)
+t2.start()
 
-def moving_forward():
-    GPIO.output(3, True)
-    GPIO.output(4, False)
-    GPIO.output(20, False)
-    GPIO.output(21, True)
-    print('---------------------')
-    print('     老铁，前进！    ')
-    print('---------------------')
+t2.join()
+t1.join()
 
-def moving_backward():
-    GPIO.output(3, False)
-    GPIO.output(4, True)
-    GPIO.output(20, True)
-    GPIO.output(21, False)
-    print('---------------------')
-    print('     老铁，后退！    ')
-    print('---------------------')
-
-def stop():
-    GPIO.output(3, False)
-    GPIO.output(4, False)
-    GPIO.output(20, False)
-    GPIO.output(21, False)
-    print('---------------------')
-    print('     老铁，立正！    ')
-    print('---------------------')
-
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_UP:
-                pwm1.ChangeDutyCycle(50)
-                pwm2.ChangeDutyCycle(50)
-                moving_forward()
-            elif event.key == pygame.K_DOWN:
-                pwm1.ChangeDutyCycle(50)
-                pwm2.ChangeDutyCycle(50)
-                moving_backward()
-            elif event.key == pygame.K_LEFT:
-                pwm1.ChangeDutyCycle(50)
-                pwm2.ChangeDutyCycle(50)
-                turning_left()
-            elif event.key == pygame.K_RIGHT:
-                pwm1.ChangeDutyCycle(50)
-                pwm2.ChangeDutyCycle(50)
-                turning_right()
-            elif event.key == pygame.K_SPACE:
-                stop()
-        elif event.type == pygame.KEYUP:
-            stop()
-
-pygame.quit()
