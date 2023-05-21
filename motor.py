@@ -87,6 +87,7 @@ def keyboard_loop():
 running = True
 
 t1 = threading.Thread(target=camera_loop)
+t1.setDaemon = True
 t1.start()
 
 t2 = threading.Thread(target=keyboard_loop)

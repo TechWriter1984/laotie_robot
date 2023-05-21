@@ -41,11 +41,11 @@ class Chatbot():
         self.engine.say(format_time)
         self.engine.runAndWait()
 
-# def main():
-#     chatbot = Chatbot()
-#     chatbot.greeting()
-#     chatbot.dontknow()
-#     chatbot.current_time()
+def main():
+    chatbot = Chatbot()
+    chatbot.greeting()
+    chatbot.dontknow()
+    chatbot.current_time()
 
-# if __name__ == '__main__':
-#     main()
+if __name__ == '__main__':
+    main()
