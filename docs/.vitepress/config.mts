@@ -2,7 +2,8 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: /repo/,
+  ignoreDeadLinks: true,
+  base: '/repo/',
   title: "Laotie",
   description: "Laotie robot",
   themeConfig: {
